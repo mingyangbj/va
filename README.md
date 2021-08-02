@@ -15,10 +15,17 @@
 
 解决方法：
 styles/view-auto-adapte.scss 中把设计稿宽度，css单位，业务代码写宽高的方法va等都做成了配置项。这样就灵活了。
+用的时候直接拷贝styles/view-auto-adapte.scss，参考app.vue下面的
+.view-auto{
+    width: va(100);//页面组件的具体宽度，设计稿值
+    height: va(100);//页面组件的具体高度，设计稿值
+    background: #42b983;
+}
+这段代码使用即可。
 
 
-使用：
-一，需求为同比例缩放：
+具体分情况使用：
+一，需求为同比例缩放1920设计稿：
 
 --unit-base: 1vw;
 --width-base: 1920;
@@ -102,3 +109,4 @@ view auto
 @function vp($px) {
 @return calc(#{$px}px);
 }
+
