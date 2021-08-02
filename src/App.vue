@@ -1,20 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="view-auto"></div>
+  <div class="view-px"></div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import './styles/view-auto-adapte';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,4 +25,18 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.view-auto{
+  width: va(100);
+  height: va(100);
+  background: #42b983;
+}
+
+.view-px{
+  margin-top: 50px;
+  width: 100px;
+  height: 100px;
+  background: #42b983;
+}
+
 </style>

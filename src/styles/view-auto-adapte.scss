@@ -1,0 +1,58 @@
+/**
+ unit-base:代表css单位：px，vw，rem等等。
+ width-base: 代表设计稿宽度。
+ vw-num-base：系统，用来切换px和vw时候使用。
+ */
+html {
+  @media screen and (max-width: 1365px) {
+    --unit-base: 1vw;
+    --width-base: 1920;
+    --vw-num-base: 100;
+  }
+
+  @media screen and (min-width: 1366px) and (max-width: 1920px) {
+    //--unit-base: 1px;
+    //--width-base: 1;
+    //--vw-num-base: 1;
+    --unit-base: 1vw;
+    --width-base: 1920;
+    --vw-num-base: 100;
+  }
+
+  @media screen and (min-width: 1921px) {
+    --unit-base: 1vw;
+    --width-base: 1920;
+    --vw-num-base: 100;
+  }
+}
+
+/**
+根据媒体查询的变量值，动态给公式赋值。达到返回不同策略的目的。
+view auto
+ */
+@function va($px) {
+  @return calc(#{$px} * var(--vw-num-base) * var(--unit-base) / var(--width-base));
+}
+
+/**
+新增设计稿
+ */
+@function vb($px) {
+  @return calc(#{$px} * var(--vw-num-base) * var(--unit-base) / 1680);
+}
+
+/**
+传入设计稿宽度，单独适配页面使用。
+view auto
+ */
+@function vaMq($px,$widthBase) {
+  @return calc(#{$px} * var(--vw-num-base) * var(--unit-base) / #{$widthBase});
+}
+
+/**
+直接返回px  view px
+ */
+@function vp($px) {
+  @return calc(#{$px}px);
+}
+
