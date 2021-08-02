@@ -15,7 +15,7 @@
 
 **解决方法：**
 
-styles/view-auto-adapte.scss **中把设计稿宽度，css单位，业务代码写宽高的方法va等都做成了配置项**。这样就灵活了。  
+styles/view-auto-adapte.scss **中把设计稿宽度，css单位，业务代码写宽高的方法va等都做成了可配置项**。这样就灵活了。  
 用的时候直接拷贝styles/view-auto-adapte.scss，参考app.vue下面的    
 .view-auto{  
     width: va(100);//页面组件的具体宽度，设计稿值  
