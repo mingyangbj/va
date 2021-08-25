@@ -15,14 +15,21 @@
 
 **解决方法：**
 
-styles/view-auto-adapte.scss **中把设计稿宽度，css单位，业务代码写宽高的方法va等都做成了可配置项**。这样就灵活了。  
-用的时候直接拷贝styles/view-auto-adapte.scss，参考app.vue下面的    
+styles/view-auto-adapte.scss **中把设计稿宽度，css单位，做成了可配置项，配合Scss的@function计算返回不同的值**。这样就灵活了。  
+用的时候直接拷贝styles/view-auto-adapte.scss。
+页面使用参考app.vue里面的    
 .view-auto{  
     width: va(100);//页面组件的具体宽度，设计稿值  
     height: va(100);//页面组件的具体高度，设计稿值  
     background: #42b983;  
 }  
 这段代码使用即可。
+
+
+**原理：**
+1，本质还是一个使用vw适配的方案，
+2，利用calc和媒体查询，scss的function返回不同的适配策略。
+3，优点为容易维护，容易更改方案。
 
 
 **具体分情况使用：**
@@ -34,7 +41,7 @@ styles/view-auto-adapte.scss **中把设计稿宽度，css单位，业务代码�
 --vw-num-base: 100;  
 
 /**  
-根据媒体查询的变量值，动态给公式赋值。达到返回不同策略的目的。  
+计算完成相当于同比例缩放的封装
 view auto  
 */
 
